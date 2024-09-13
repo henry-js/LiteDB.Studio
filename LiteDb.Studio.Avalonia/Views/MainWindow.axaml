@@ -1,0 +1,70 @@
+<Window
+    x:Class="LiteDb.Studio.Avalonia.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:AvaloniaEdit="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:LiteDb.Studio.Avalonia.ViewModels"
+    Title="LiteDb.Studio.Avalonia"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:MainWindowViewModel"
+    Icon="/Assets/avalonia-logo.ico"
+    mc:Ignorable="d">
+
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Hello" />
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="Auto"
+                    MinWidth="200"
+                    MaxWidth="300" />
+                <ColumnDefinition Width="4" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" MinHeight="200" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="*" MinHeight="200" />
+            </Grid.RowDefinitions>
+            <Rectangle
+                Grid.RowSpan="3"
+                Grid.Column="0"
+                MinWidth="200"
+                MaxWidth="300"
+                Fill="Yellow" />
+            <GridSplitter
+                Grid.RowSpan="3"
+                Grid.Column="1"
+                Background="Black"
+                ResizeDirection="Columns" />
+            <AvaloniaEdit:TextEditor
+                Grid.Row="0"
+                Grid.Column="2"
+                FontFamily="Cascadia Code,Consolas,Menlo,Monospace"
+                ShowLineNumbers="True"
+                Text="Hello AvaloniaEdit!" />
+            <GridSplitter
+                Grid.Row="1"
+                Grid.Column="2"
+                Background="Black"
+                ResizeDirection="Rows" />
+            <Rectangle
+                Grid.Row="2"
+                Grid.Column="2"
+                Fill="Red" />
+        </Grid>
+    </DockPanel>
+
+</Window>
